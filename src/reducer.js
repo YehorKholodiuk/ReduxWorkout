@@ -7,15 +7,16 @@ function reducer(state = initialState, action) {
     if (action.type === 'PLUS') {
         return {
             ...state,
-            count: state.count + 1
+            count: state.count + action.payload
         }
     }
     if (action.type === 'MINUS') {
         return {
             ...state,
-            count: state.count - 1
+            count: state.count - action.payload
         }
     }
+
 
 
     return state;
