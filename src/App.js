@@ -6,6 +6,8 @@ function App(props) {
   return (
     <div className="App">
       {props.co}
+      <button onClick={props.plus}>Plus</button>
+      <button onClick={props.minus}>Minus</button>
     </div>
   );
 }
@@ -13,4 +15,9 @@ const mapStateToProps = (state) =>({
   co:state.count
 })
 
-export default connect(mapStateToProps) (App);
+const mapDispatchToProps = dispatch => ({
+  plus: () => dispatch({type:"PLUS"}),
+  minus: () => dispatch({type:"MINUS"})
+})
+
+export default connect(mapStateToProps, mapDispatchToProps) (App);
